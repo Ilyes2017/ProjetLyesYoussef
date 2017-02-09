@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using AdminApp.Model;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,7 @@ namespace AdminApp
     /// </summary>
     sealed partial class App : Application
     {
+        public static Pharmacie currentph = new Pharmacie();
         public static MobileServiceClient MobileService =
 new MobileServiceClient(
     "https://medicl.azurewebsites.net"

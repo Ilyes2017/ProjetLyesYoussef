@@ -5,10 +5,11 @@
     xmlns:local="using:AdminApp.View.GestionPharmacie"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
     <Grid Background="White">
-        <Grid Name="affiche">
+        <Grid Name="affiche" Height="452" VerticalAlignment="Top" Margin="0,0,0,-92">
             <ListView Name="listv" SelectionChanged="listv_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -27,19 +28,31 @@
             </ListView>
         </Grid>
         <Grid Name="modal" Margin="80" Visibility="Collapsed">
-            <StackPanel>
-                <TextBlock Text="Pharmacie"  FontSize="50" HorizontalAlignment="Center"/>
-                <TextBox Name="txtNom" PlaceholderText="Nom de Pharmacies" Margin="10" LostFocus="txtNom_LostFocus" />
-                <TextBox Name="txtAdresse" PlaceholderText="Adresse de Pharmacies" Margin="10" LostFocus="txtAdresse_LostFocus" />
-                <ComboBox Name="txtDisponibilite" PlaceholderText="Disponibilite de Pharmacies" Margin="10" />
-                <TextBox Name="txtLatitude" PlaceholderText="Latitude de Pharmacies" Margin="10" LostFocus="txtLatitude_LostFocus" />
-                <TextBox Name="txtLongetude" PlaceholderText="Longetude de Pharmacies" Margin="10" LostFocus="txtLongetude_LostFocus" />
-                <StackPanel Orientation="Horizontal" Name="stackmaj">
-                    <Button Name="btndel" Background="Red" Content="Supprimer" Click="btndel_Click"/>
-                    <Button Name="btnmodif" Background="Green" Content="Enregister" Click="btnmodif_Click"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="287*"/>
+                <ColumnDefinition Width="193*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel >
+                    <TextBlock Text="Pharmacie"  FontSize="50" HorizontalAlignment="Center"/>
+                    <TextBox Name="txtNom" PlaceholderText="Nom de Pharmacies" Margin="10" LostFocus="txtNom_LostFocus" TextChanged="txtNom_TextChanged" />
+                    <TextBox Name="txtAdresse" PlaceholderText="Adresse de Pharmacies" Margin="10" LostFocus="txtAdresse_LostFocus" />
+                    <ComboBox Name="txtDisponibilite" PlaceholderText="Disponibilite de Pharmacies" Margin="10" />
+                    <TextBox Name="txtLatitude" PlaceholderText="Latitude de Pharmacies" Margin="10" LostFocus="txtLatitude_LostFocus" />
+                    <TextBox Name="txtLongetude" PlaceholderText="Longetude de Pharmacies" Margin="10" LostFocus="txtLongetude_LostFocus" />
+                    <StackPanel Orientation="Horizontal" Name="stackmaj">
+                        <Button Name="btndel" Background="Red" Content="Supprimer" Click="btndel_Click"/>
+                        <Button Name="btnmodif" Background="Green" Content="Enregister" Click="btnmodif_Click"/>
+                    </StackPanel>
+                    <Button Name="btnajout" Background="Green" Content="Ajouter" Click="btnajout_Click"/>
                 </StackPanel>
-                <Button Name="btnajout" Background="Green" Content="Ajouter" Click="btnajout_Click"/>
-            </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center">
+                    <AppBarButton Name="testplace" Icon="Map" HorizontalAlignment="Center" Click="testplace_Click"/>
+                    <Maps:MapControl x:Name="MapControl1" ZoomInteractionMode="GestureAndControl" TiltInteractionMode="GestureAndControl" MapServiceToken="ykEAKhcDWOapUKO5fdrm~aMaaTd_YUz6DKl2MODKh-g~AmAFoLK1YuqSOSJ8KmFdkFEWY-_hrmoDMeuOKSPHuXY2U3g1ULlu9u9LeLeLSr9G" Height="250"/>
+                </StackPanel>
+            </Grid>
         </Grid>
 
     </Grid>
@@ -48,6 +61,7 @@
             <AppBarButton Name="btnadd" Icon="Add" Label="Ajouter" Click="btnadd_Click" />
             <AppBarSeparator/>
             <AppBarButton Name="btnaccueil" Icon="Home" Label="Accueil"/>
+            <AppBarButton Name="btnmedicament" Icon="List" Label="Medicaments" Visibility="Collapsed" Click="btnmedicament_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

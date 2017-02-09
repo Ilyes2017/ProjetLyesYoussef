@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="AdminApp.View.GestionHopital.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdminApp.View.GestionHopital"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <StackPanel>
+            <TextBlock Text="Hopital" Margin="30" FontSize="50" HorizontalAlignment="Center" />
+            <TextBox Name="txtnom" PlaceholderText="nom de hopital" Margin="10" LostFocus="txtnom_LostFocus"/>
+            <TextBox Name="txtadresse" PlaceholderText="Adresse" Margin="10" LostFocus="txtadresse_LostFocus"/>
+            <ComboBox Name="txtservice" PlaceholderText="service" Margin="10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Service:" FontSize="20" Margin="10"/>
+                <RadioButton Name="servicepub" Content="Publique" Margin="10"/>
+                <RadioButton Name="serviceprive" Content="Privé" Margin="10"/>
+            </StackPanel>
+            <TextBox Name="txtattitude" PlaceholderText="l'attitude" Margin="10" LostFocus="txtattitude_LostFocus"/>
+            <TextBox Name="txtlangitude" PlaceholderText="langitude" Margin="10" LostFocus="txtlangitude_LostFocus"/>
+
+
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>

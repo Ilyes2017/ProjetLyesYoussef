@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="AdminApp.View.GestionMedicament.IndexMedicament"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdminApp.View.GestionMedicament"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <StackPanel>
+            <TextBlock Text="Médicament" FontSize="50" HorizontalAlignment="Center"/>
+            <TextBox Name="txtnom" PlaceholderText="Nom de médicament" Margin="10" LostFocus="txtnom_LostFocus" />
+            <TextBox Name="txtutilisation" PlaceholderText="utilisation de médicament" Margin="10" LostFocus="txtutilisation_LostFocus" />
+            <TextBox Name="txtprix" PlaceholderText="prix de médicament" Margin="10" LostFocus="txtprix_LostFocus" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="date de fabrication" Width="150" Margin="10"  HorizontalAlignment="Center" />
+                <DatePicker Name="txtfabrication" DateChanged="txtfabrication_DateChanged" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="date d'expiration" Width="150" Margin="10"  HorizontalAlignment="Center" />
+                <DatePicker Name="txtexpiration" DateChanged="txtexpiration_DateChanged"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Name="btnadd" Icon="Add" Label="Ajouter" Click="btnadd_Click"/>
+            <AppBarSeparator/>
+            <AppBarButton Name="btndel" Icon="Delete" Label="supprimer" Click="btndel_Click"/>
+            <AppBarSeparator/>
+            <AppBarButton Name="btnup" Icon="Edit" Label="modifier" Click="btnup_Click"/>
+            <AppBarSeparator/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

@@ -98,8 +98,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Medicament.cs" />
     <Compile Include="Model\Pharmacie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\GestionMedicament\IndexMedicament.xaml.cs">
+      <DependentUpon>IndexMedicament.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionPharmacie\GestionPharmacies.xaml.cs">
       <DependentUpon>GestionPharmacies.xaml</DependentUpon>
     </Compile>
@@ -128,6 +132,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\GestionMedicament\IndexMedicament.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GestionPharmacie\GestionPharmacies.xaml">
       <SubType>Designer</SubType>

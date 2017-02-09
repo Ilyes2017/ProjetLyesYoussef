@@ -1,10 +1,12 @@
 ﻿using AdminApp.Model;
+using AdminApp.View.GestionMedicament;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -97,6 +99,7 @@ namespace AdminApp.View.GestionPharmacie
             txtDisponibilite.PlaceholderText = selectedpharmacie.disponibilite;
             txtLongetude.Text = selectedpharmacie.longitude.ToString();
             txtLatitude.Text = selectedpharmacie.latitude.ToString();
+            btnmedicament.Visibility = Visibility.Visible;
         }
 
         private async void btnajout_Click(object sender, RoutedEventArgs e)
@@ -129,6 +132,28 @@ namespace AdminApp.View.GestionPharmacie
         {
             modal.Visibility = Visibility.Visible;
             btnajout.Visibility = Visibility.Collapsed;
+        }
+
+        private void testplace_Click(object sender, RoutedEventArgs e)
+        {
+            // Specify a known location.
+            BasicGeoposition cityPosition = new BasicGeoposition() { Latitude = Double.Parse(txtLatitude.Text), Longitude = Double.Parse(txtLongetude.Text) };
+            Geopoint cityCenter = new Geopoint(cityPosition);
+
+            // Set the map location.
+            MapControl1.Center = cityCenter;
+            MapControl1.ZoomLevel = 12;
+            MapControl1.LandmarksVisible = true;
+        }
+
+        private void btnmedicament_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(IndexMedicament));
+        }
+
+        private void txtNom_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
